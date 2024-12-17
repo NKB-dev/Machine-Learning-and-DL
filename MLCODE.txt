@@ -1,0 +1,59 @@
+import pandas as pd
+from sklearn.tree import DecisionTreeClassifier
+music_data = pd.read_csv('music.csv')
+X = music_data.drop(columns=['genre'])
+Y = music_data['genre']
+model=  DecisionTreeClassifier()
+model.fit(X,Y)
+prediction = model.predict([ [21,1],[22,0] ])
+prediction
+
+
+
+
+.............................
+
+import pandas as pd
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.externals import joblib
+#from sklearn.model_selection import train_test_split
+#from sklearn.metrics import accuracy_score
+music_data = pd.read_csv('music.csv')
+X = music_data.drop(columns=['genre'])
+Y = music_data['genre']
+ #X_train,X_test,Y_train,Y_test = train_test_split(X,Y,test_size=0.2)
+model=  DecisionTreeClassifier()
+model.fit(X,Y)
+joblib.dump(model,'music_Recommander.joblib')
+#model.fit(X_train,Y_train)
+#prediction = model.predict(X_test)
+#score=accuracy_score(Y_test,prediction)
+#sc#ore
+
+---------------------------------------------
+
+
+
+import pandas as pd #for database reading
+#import joblib #for model saving
+from sklearn.tree import DecisionTreeClassifier #for importing model algoritham 
+from skleran import tree
+#from sklearn.externals import joblib
+#from sklearn.model_selection import train_test_split
+#from sklearn.metrics import accuracy_score
+music_data = pd.read_csv('music.csv')
+X = music_data.drop(columns=['genre'])
+Y = music_data['genre']
+ #X_train,X_test,Y_train,Y_test = train_test_split(X,Y,test_size=0.2)
+model=  DecisionTreeClassifier()
+model.fit(X,Y)
+#joblib.dump(model,'music_Recommander.joblib')
+#model.fit(X_train,Y_train)
+#prediction = model.predict(X_test)
+#score=accuracy_score(Y_test,prediction)
+#score
+tree.export_graphviz(model,out_file='music-recommender.dot',
+feature_names=[ 'age', 'gender'],
+class_names=sorted(y.unique ( )),
+label='all',
+rounded=True,filled=True)
